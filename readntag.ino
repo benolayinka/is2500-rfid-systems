@@ -24,11 +24,6 @@ int findviewstringstart(byte * buffer, int length)
   return -1;
 }
 
-void findandreplace()
-{
-  
-}
-
 void readblock(byte address, byte * buffer)
 {
   Wire.beginTransmission(NXP_ADDR);
@@ -50,7 +45,6 @@ void writeblock(byte address, byte * buffer)
 void setup() {
   ADCSRA = 0;
   CLKPR = _BV(CLKPCE);  // enable change of the clock prescaler
-  //CLKPR = _BV(CLKPS0);  // divide frequency by 2
   CLKPR = 0b0011; // divide frequency by 8
   
   int views = 0;
@@ -126,6 +120,7 @@ void setup() {
     delay(10);
   }
 
+  //flash LEDs for user
   pinMode(LED_BUILTIN, OUTPUT);
   for(int i=0; i<7; i++)
   {
